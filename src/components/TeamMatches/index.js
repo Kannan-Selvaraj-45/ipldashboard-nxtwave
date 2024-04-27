@@ -56,10 +56,11 @@ class TeamMatches extends Component {
 
   renderTeamMatches = () => {
     const {matchesData} = this.state
-    const {teamBannerUrl, latestMatchDetails} = matchesData
+    const {teamBannerUrl, latestMatchDetails, competingTeam} = matchesData
     return (
       <div className="team-matches-container">
-        <img src={teamBannerUrl} alt="img" className="team-banner" />
+        <img src={teamBannerUrl} alt="team banner" className="team-banner" />
+        <p className="match-card-name">{competingTeam}</p>
         <LatestMatch latestMatch={latestMatchDetails} />
         {this.renderRecentMatchesList()}
       </div>
@@ -79,7 +80,7 @@ class TeamMatches extends Component {
   }
 
   renderLoader = () => (
-    <div data-testid="loader" className="loader-container">
+    <div testid="loader" className="loader-container">
       <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
     </div>
   )
